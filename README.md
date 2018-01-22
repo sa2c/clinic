@@ -2,10 +2,11 @@
 
 ```usage: generate.py [-h] [--outer_template OUTER_TEMPLATE]
                    [--inner_template INNER_TEMPLATE]
+		   [--next_template NEXT_TEMPLATE]
                    [--annual_template ANNUAL_TEMPLATE]
                    folder output_file
 
-Takes a folder full of YAML seminar descriptions and arranges them into a HTML
+Takes a folder full of YAML clinic descriptions and arranges them into a HTML
 page based on the given templates
 
 positional arguments:
@@ -16,6 +17,7 @@ optional arguments:
   -h, --help            show this help message and exit
   --outer_template OUTER_TEMPLATE
   --inner_template INNER_TEMPLATE
+  --next_template NEXT_TEMPLATE
   --annual_template ANNUAL_TEMPLATE```
 
 ## Template syntax
@@ -30,11 +32,19 @@ This is iterated over for each event (i.e. each YAML file).
 The following names are recognised:
 
 * `id`
-* `title`
-* `speaker`
-* `abstract`
 * `date`
-* `time`
+* `start`
+* `end`
+* `locref`
+* `location`
+
+`locref` should point to a web page describing the room in question.
+
+`date`, `locref`, and `location` are compulsory.
+
+### `next_template.html`
+
+Formats the next scheduled event. Parameters are as `inner_template.html`.
 
 ### `annual_template.html`
 
