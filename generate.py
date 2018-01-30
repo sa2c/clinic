@@ -68,7 +68,7 @@ def group_dates(details):
     '''Takes a list of detail dicts (`details`), and returns a 
     dict of lists of dicts, where each key is a year.'''
 
-    details.sort(key=itemgetter('date', 'time'))
+    details.sort(key=itemgetter('date', 'start'))
     if len(details) == 0:
         return {}
     
