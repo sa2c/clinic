@@ -98,7 +98,14 @@ def year_html(years, inner_template):
         yield year, '\n'.join(inner_html
                               for inner_html
                               in generate_inner(years[year], inner_template))
-        
+
+def get_next_event(events):
+    if events:
+        for event in events:
+            if event['locref'] != 'none':
+                return event
+
+
 def generate_html(folder, output_file,
                   outer_template_file, inner_template_file,
                   next_template_file, annual_template_file=None):
@@ -114,12 +121,22 @@ def generate_html(folder, output_file,
 
     future_events.sort(key=itemgetter('date', 'start', 'end'))
     next_template = next_template_file.read()
-    next_html = next_template.format(**future_events[0])
+    next_event = get_next_event(future_events)
+    if next_event:
+        next_html = next_template.format(**next_event)
+    else:
+        next_html = ''
     
     inner_template = inner_template_file.read()
     future_html = '\n'.join(inner_html
                             for inner_html
                             in generate_inner(future_events, inner_template))
+
+    if not future_html:
+        future_html = ('No clinics are currently scheduled. Please '
+                       '<a href="mailto:sa2c-support@swansea.ac.uk.">'
+                       'contact support</a> for assistance.')
+
     if annual_template_file:
         annual_template = annual_template_file.read()
     else:
