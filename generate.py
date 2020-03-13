@@ -49,8 +49,10 @@ def get_details(files):
 
     for f in files:
         detail = {**default, **yaml.load(get_file_contents(f))}
-        if not {'date', 'location', 'locref'}.issubset(detail):
-            print("{} is missing essential parameters.format(f)")
+        if 'link' not in detail and 'locref' in detail:
+            detail['link'] = f'{detail.pop("locref")}.html'
+        if not {'date', 'location', 'link'}.issubset(detail):
+            print(f"{f} is missing essential parameters")
             continue
         detail['start'] = munge_time(detail['start'])
         detail['end'] = munge_time(detail['end'])                                     
