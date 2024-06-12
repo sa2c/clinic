@@ -31,7 +31,7 @@ def get_details(files):
                'videoid': '', 'map': ''}
     
     for f in files:
-        detail = {**default, **yaml.load(get_file_contents(f))}
+        detail = {**default, **yaml.safe_load(get_file_contents(f))}
         if not {'name', 'code', 'directions'}.issubset(detail):
             print("{} is missing essential parameters".format(f))
             continue

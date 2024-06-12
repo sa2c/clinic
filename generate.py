@@ -48,7 +48,7 @@ def get_details(files):
     ids = set()
 
     for f in files:
-        detail = {**default, **yaml.load(get_file_contents(f))}
+        detail = {**default, **yaml.safe_load(get_file_contents(f))}
         if 'link' not in detail and 'locref' in detail:
             detail['link'] = f'{detail.pop("locref")}.html'
         if not {'date', 'location', 'link'}.issubset(detail):
