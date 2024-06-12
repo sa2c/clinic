@@ -1,0 +1,112 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: Futura, Helvetica, HelveticaNeue, Arial, sans-serif;
+  margin-bottom: 100px;
+  background-color: #ffffff;
+  padding-bottom: 10%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Cosmos, "Cosmos BQ", Georgia, serif;
+  color: #233264;;
+  font-weight: normal;
+}
+
+a:link {
+    color: #233264;;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #207BB9;
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+}
+
+.date {
+  text-align: center;
+}
+
+.time {
+  text-align: left;
+}
+
+.title {
+    text-align: center;
+    font-size: 16pt;
+}
+
+.scriptlink {
+  cursor: pointer;
+  color: #233264;
+}
+
+ul.footeritems {
+    display: table;
+    width: 100%;
+    list-style-type: none;
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+}
+
+li.footeritem {
+    display: table-cell;
+    width: 33%;
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    position: fixed;
+    height: 200px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-image: url(../images/wave.svg);
+    background-repeat: no-repeat;
+    background-position: 0px top;
+    background-size: 100%;
+    vertical-align: text-bottom;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.innerheader {
+    position: inline;
+    text-align: center;
+    height: 100px;
+    display: table;
+    margin: auto;
+}
+
+.title {
+    height: 100px;
+    display: table-cell;
+    vertical-align: middle;    
+}
+
+.next {
+    display: inline-block;
+    width: 80%;
+    border: 2px solid #080;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22pt;
+    background-color: #8f8;
+    color: #080;
+}
+
+table tr:nth-child(odd) td {
+    background-color: #eee;
+}

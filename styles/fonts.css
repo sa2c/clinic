@@ -1,0 +1,13 @@
+@font-face
+{
+  font-family:"Cosmos BQ";
+  src: url('CosmosBQ-Medium.otf'),
+       url('CosmosBQ-Medium.eot'); /* IE9 */
+}
+
+@font-face
+{
+  font-family: Futura;
+  src: url('Futura.otf'),
+       url('Futura.eot'); /* IE9 */
+}
